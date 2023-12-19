@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  user-app:
+    hostname: chat-room
+    restart: on-failure
+    image: chat-room-app
+    container_name: chat-room-app
+    build: .
+    ports:
+      - "8004:8084"
+    networks:
+      - ems-network
+
+networks:
+  ems-network:
+    external: true
